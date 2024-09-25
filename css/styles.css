@@ -1,0 +1,246 @@
+/* Reset default styles and set box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* CU Blue */
+  --cu-blue: #005ca9;
+  --cu-blue-rgb: 0, 93, 170;
+
+  /* CU Navy Blue */
+  --cu-navy-blue: #00235d;
+  --cu-navy-blue-rgb: 0, 35, 93;
+
+  /* CU Light Blue */
+  --cu-light-blue: #6cadde;
+  --cu-light-blue-rgb: 108, 173, 222;
+
+  /* CU Gray */
+  --cu-gray: #828282;
+  --cu-gray-rgb: 130, 130, 130;
+
+  /* CU Light Gray */
+  --cu-light-gray: #c8c8c8;
+  --cu-light-gray-rgb: 200, 200, 200;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set default font styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: var(--cu-light-gray);
+}
+
+/* Improve text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+main {
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Basic link styling */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Basic button styling */
+button {
+  cursor: pointer;
+}
+
+/* Improve form element consistency */
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Remove list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Basic table styles */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+/**  **/
+nav {
+  background-color: var(--cu-blue);
+  padding: 10px 10%;
+}
+
+nav ul {
+  width: 30%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav ul li {
+  margin: 0 6px;
+}
+
+nav ul li a {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+#hero-slideshow {
+  position: relative;
+  width: 100vw;
+  height: calc(100vh - 40px);
+  overflow: hidden;
+}
+
+.hero-slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slideshow-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+}
+
+.hero-text {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 1;
+  max-width: 60%;
+  padding: 2%;
+  background-color: rgba(var(--cu-gray-rgb), 0.8);
+  border-radius: 2rem;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 0.6rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero-button {
+  color: #fff;
+  background-color: var(--cu-navy-blue);
+  font-size: 1rem;
+  padding: 15px 30px;
+  border-radius: 1rem;
+  transition: 0.5s;
+  border: none;
+}
+
+.hero-button:hover {
+  background-color: var(--cu-blue);
+}
+
+#recent-season-player-stats {
+  padding: 1%;
+}
+
+#recent-season-player-stats h2 {
+  text-align: center;
+  margin-bottom: 1%;
+}
+
+.stats-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 16px;
+}
+
+.stats-table th,
+.stats-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.stats-table th {
+  background-color: var(--cu-navy-blue);
+  font-weight: bold;
+  color: #fff;
+}
+
+.stats-table tr {
+  background-color: var(--cu-light-blue);
+  color: black;
+}
+
+/**
+.stats-table tr:nth-child(even) {
+  background-color: var(--cu-light-blue);
+}
+
+.stats-table tr:nth-child(odd) {
+  background-color: var(--cu-light-blue);
+}**/
+
+.stats-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.stats-table td:first-child {
+  position: sticky;
+  left: 0;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.table-container {
+  overflow-x: auto;
+  width: 80%;
+  margin: 0 auto;
+}
