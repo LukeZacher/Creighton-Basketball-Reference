@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StatNest - Players</title>
+    <meta
+      name="description"
+      content="Player details for the Creighton Men's Basketball Program"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+      /* Player Details Styles */
+      .player-selector {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      select {
+        padding: 8px 16px;
+        font-size: 16px;
+        border-radius: 4px;
+      }
+
+      .player-details-container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #d4e3f5;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .player-details-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .detail-item {
+        padding: 10px;
+        background-color: white;
+        border-radius: 4px;
+      }
+
+      .detail-item strong {
+        color: #003366;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="players.html">Players</a></li>
+          <li><a href="seasons.html">Years</a></li>
+          <li><a href="stats.html">Stats</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Player Details</h2>
+      <div class="player-selector">
+        <select id="playerDropdown" onchange="fetchPlayerDetails()">
+          <option value="">Select a Player</option>
+        </select>
+      </div>
+
+      <div class="player-details-container">
+        <div id="playerDetails">Select a player to view their details</div>
+      </div>
+    </main>
+
+    <script>
+      // Populate player dropdown on page load
+      window.addEventListener("DOMContentLoaded", () => {
+        const playerDropdown = document.getElementById("playerDropdown");
+
+        fetch(
+          "https://api.sportsdata.io/v3/cbb/scores/json/PlayersBasic/CREIGH?key=d04b4b1d503341d89c892169f5e33efd"
+        )
+          .then((response) => response.json())
+          .then((players) => {
+            players.forEach((player) => {
+              const option = document.createElement("option");
+              option.value = player.PlayerID;
+              option.textContent = `${player.FirstName} ${player.LastName}`;
+              playerDropdown.appendChild(option);
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching player list:", error);
+          });
+      });
+
+      // Fetch and display player details
+      function fetchPlayerDetails() {
+        const playerId = document.getElementById("playerDropdown").value;
+        const detailsContainer = document.getElementById("playerDetails");
+
+        if (playerId) {
+          fetch(
+            `https://api.sportsdata.io/v3/cbb/scores/json/Player/${playerId}?key=d04b4b1d503341d89c892169f5e33efd`
+          )
+            .then((response) => response.json())
+            .then((player) => {
+              detailsContainer.innerHTML = `
+                            <div class="player-details-grid">
+                                <div class="detail-item">
+                                    <strong>Name:</strong> ${
+                                      player.FirstName
+                                    } ${player.LastName}
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Jersey:</strong> ${
+                                      player.Jersey || "N/A"
+                                    }
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Position:</strong> ${
+                                      player.Position || "N/A"
+                                    }
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Height:</strong> ${
+                                      player.Height || "N/A"
+                                    }
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Weight:</strong> ${
+                                      player.Weight
+                                        ? player.Weight + " lbs"
+                                        : "N/A"
+                                    }
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Birth City:</strong> ${
+                                      player.BirthCity || "N/A"
+                                    }
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Birth State:</strong> ${
+                                      player.BirthState || "N/A"
+                                    }
+                                </div>
+                            </div>
+                        `;
+            })
+            .catch((error) => {
+              console.error("Error fetching player details:", error);
+              detailsContainer.textContent = "Error loading player details.";
+            });
+        } else {
+          detailsContainer.textContent = "Please select a player.";
+        }
+      }
+    </script>
+  </body>
+</html>

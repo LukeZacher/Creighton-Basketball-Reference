@@ -42,16 +42,17 @@ body {
   line-height: 1.5;
   color: #333;
   background-color: var(--cu-light-gray);
-}
-
-/* Improve text rendering */
-body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 main {
+}
+
+h2 {
+  text-align: center;
+  margin-top: 1rem;
 }
 
 /* Make images responsive */
@@ -243,4 +244,11 @@ nav ul li a {
   overflow-x: auto;
   width: 80%;
   margin: 0 auto;
+}
+
+.seasons-body {
+  padding-top: 3%;
+}
+
+.info-header {
 }

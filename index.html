@@ -9,7 +9,30 @@
       content="A website dedicated to stats for the Creighton Men's Basketball Program."
     />
     <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/main.js" defer></script>
+    <style>
+      /* Stats Section Styling */
+      .season-selector {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      select {
+        padding: 8px 16px;
+        font-size: 16px;
+        border-radius: 4px;
+      }
+
+      .table-container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow-x: auto;
+      }
+
+      #recent-season-player-stats {
+        min-height: 80vh;
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -17,7 +40,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="pages/players.html">Players</a></li>
-          <li><a href="pages/teams.html">Years</a></li>
+          <li><a href="pages/seasons.html">Years</a></li>
           <li><a href="pages/stats.html">Stats</a></li>
         </ul>
       </nav>
@@ -41,348 +64,152 @@
       </section>
 
       <section id="recent-season-player-stats">
-        <h2>2023-2024 Season Player Stats</h2>
-        <div class="table-container">
-          <table class="stats-table">
-            <thead>
-              <tr>
-                <th>Player</th>
-                <th>G</th>
-                <th>GS</th>
-                <th>MP</th>
-                <th>FG</th>
-                <th>FGA</th>
-                <th>FG%</th>
-                <th>2P</th>
-                <th>2PA</th>
-                <th>2P%</th>
-                <th>3P</th>
-                <th>3PA</th>
-                <th>3P%</th>
-                <th>FT</th>
-                <th>FTA</th>
-                <th>FT%</th>
-                <th>ORB</th>
-                <th>DRB</th>
-                <th>TRB</th>
-                <th>AST</th>
-                <th>STL</th>
-                <th>BLK</th>
-                <th>TOV</th>
-                <th>PF</th>
-                <th>PTS</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="player-name">Baylor Scheierman</td>
-                <td>35</td>
-                <td>35</td>
-                <td>36.8</td>
-                <td>6.3</td>
-                <td>14.0</td>
-                <td>.448</td>
-                <td>3.1</td>
-                <td>5.7</td>
-                <td>.545</td>
-                <td>3.1</td>
-                <td>8.3</td>
-                <td>.381</td>
-                <td>2.8</td>
-                <td>3.2</td>
-                <td>.876</td>
-                <td>0.7</td>
-                <td>8.3</td>
-                <td>9.0</td>
-                <td>3.9</td>
-                <td>0.9</td>
-                <td>0.1</td>
-                <td>2.2</td>
-                <td>1.7</td>
-                <td>18.5</td>
-              </tr>
-              <tr>
-                <td class="player-name">Trey Alexander</td>
-                <td>35</td>
-                <td>35</td>
-                <td>37.3</td>
-                <td>6.6</td>
-                <td>14.9</td>
-                <td>.446</td>
-                <td>4.9</td>
-                <td>9.6</td>
-                <td>.504</td>
-                <td>1.8</td>
-                <td>5.2</td>
-                <td>.339</td>
-                <td>2.5</td>
-                <td>3.1</td>
-                <td>.824</td>
-                <td>0.5</td>
-                <td>5.2</td>
-                <td>5.7</td>
-                <td>4.7</td>
-                <td>1.1</td>
-                <td>0.4</td>
-                <td>2.5</td>
-                <td>1.7</td>
-                <td>17.6</td>
-              </tr>
-              <tr>
-                <td class="player-name">Ryan Kalkbrenner</td>
-                <td>35</td>
-                <td>35</td>
-                <td>34.7</td>
-                <td>6.9</td>
-                <td>10.7</td>
-                <td>.646</td>
-                <td>6.4</td>
-                <td>9.1</td>
-                <td>.705</td>
-                <td>0.5</td>
-                <td>1.5</td>
-                <td>.296</td>
-                <td>3.0</td>
-                <td>4.3</td>
-                <td>.711</td>
-                <td>2.5</td>
-                <td>5.1</td>
-                <td>7.6</td>
-                <td>1.3</td>
-                <td>0.4</td>
-                <td>3.1</td>
-                <td>1.5</td>
-                <td>1.9</td>
-                <td>17.3</td>
-              </tr>
-              <tr>
-                <td class="player-name">Steven Ashworth</td>
-                <td>35</td>
-                <td>35</td>
-                <td>31.6</td>
-                <td>3.5</td>
-                <td>8.8</td>
-                <td>.394</td>
-                <td>1.2</td>
-                <td>2.2</td>
-                <td>.526</td>
-                <td>2.3</td>
-                <td>6.5</td>
-                <td>.349</td>
-                <td>1.9</td>
-                <td>2.1</td>
-                <td>.907</td>
-                <td>0.3</td>
-                <td>3.0</td>
-                <td>3.3</td>
-                <td>4.2</td>
-                <td>0.5</td>
-                <td>0.0</td>
-                <td>1.5</td>
-                <td>1.9</td>
-                <td>11.1</td>
-              </tr>
-              <tr>
-                <td class="player-name">Mason Miller</td>
-                <td>33</td>
-                <td>33</td>
-                <td>21.8</td>
-                <td>1.8</td>
-                <td>3.8</td>
-                <td>.488</td>
-                <td>0.4</td>
-                <td>0.5</td>
-                <td>.706</td>
-                <td>1.5</td>
-                <td>3.3</td>
-                <td>.454</td>
-                <td>0.4</td>
-                <td>0.5</td>
-                <td>.722</td>
-                <td>0.9</td>
-                <td>2.4</td>
-                <td>3.3</td>
-                <td>0.4</td>
-                <td>0.2</td>
-                <td>0.1</td>
-                <td>0.4</td>
-                <td>1.0</td>
-                <td>5.6</td>
-              </tr>
-              <tr>
-                <td class="player-name">Francisco Farabello</td>
-                <td>35</td>
-                <td>0</td>
-                <td>21.9</td>
-                <td>1.4</td>
-                <td>2.8</td>
-                <td>.495</td>
-                <td>0.6</td>
-                <td>0.9</td>
-                <td>.667</td>
-                <td>0.8</td>
-                <td>2.0</td>
-                <td>.420</td>
-                <td>0.2</td>
-                <td>0.3</td>
-                <td>.700</td>
-                <td>0.3</td>
-                <td>1.8</td>
-                <td>2.1</td>
-                <td>1.5</td>
-                <td>0.5</td>
-                <td>0.1</td>
-                <td>0.9</td>
-                <td>1.4</td>
-                <td>3.8</td>
-              </tr>
-              <tr>
-                <td class="player-name">Isaac Traudt</td>
-                <td>31</td>
-                <td>2</td>
-                <td>8.8</td>
-                <td>1.0</td>
-                <td>2.2</td>
-                <td>.435</td>
-                <td>0.2</td>
-                <td>0.4</td>
-                <td>.500</td>
-                <td>0.8</td>
-                <td>1.8</td>
-                <td>.421</td>
-                <td>0.2</td>
-                <td>0.2</td>
-                <td>.833</td>
-                <td>0.5</td>
-                <td>0.7</td>
-                <td>1.2</td>
-                <td>0.4</td>
-                <td>0.1</td>
-                <td>0.0</td>
-                <td>0.1</td>
-                <td>0.5</td>
-                <td>2.9</td>
-              </tr>
-              <tr>
-                <td class="player-name">Fredrick King</td>
-                <td>30</td>
-                <td>0</td>
-                <td>6.4</td>
-                <td>1.1</td>
-                <td>1.9</td>
-                <td>.571</td>
-                <td>1.1</td>
-                <td>1.8</td>
-                <td>.593</td>
-                <td>0.0</td>
-                <td>0.1</td>
-                <td>.000</td>
-                <td>0.4</td>
-                <td>0.8</td>
-                <td>.520</td>
-                <td>0.8</td>
-                <td>1.3</td>
-                <td>2.2</td>
-                <td>0.1</td>
-                <td>0.1</td>
-                <td>0.3</td>
-                <td>0.3</td>
-                <td>1.0</td>
-                <td>2.6</td>
-              </tr>
-              <tr>
-                <td class="player-name">Jasen Green</td>
-                <td>25</td>
-                <td>0</td>
-                <td>7.2</td>
-                <td>0.7</td>
-                <td>1.0</td>
-                <td>.654</td>
-                <td>0.6</td>
-                <td>0.8</td>
-                <td>.789</td>
-                <td>0.1</td>
-                <td>0.3</td>
-                <td>.286</td>
-                <td>0.1</td>
-                <td>0.2</td>
-                <td>.500</td>
-                <td>0.9</td>
-                <td>0.8</td>
-                <td>1.7</td>
-                <td>0.3</td>
-                <td>0.0</td>
-                <td>0.0</td>
-                <td>0.3</td>
-                <td>0.4</td>
-                <td>1.6</td>
-              </tr>
-              <tr>
-                <td class="player-name">Josiah Dotzler</td>
-                <td>19</td>
-                <td>0</td>
-                <td>4.1</td>
-                <td>0.5</td>
-                <td>1.2</td>
-                <td>.435</td>
-                <td>0.4</td>
-                <td>0.6</td>
-                <td>.667</td>
-                <td>0.1</td>
-                <td>0.6</td>
-                <td>.182</td>
-                <td>0.2</td>
-                <td>0.3</td>
-                <td>.600</td>
-                <td>0.1</td>
-                <td>0.3</td>
-                <td>0.4</td>
-                <td>0.2</td>
-                <td>0.2</td>
-                <td>0.0</td>
-                <td>0.4</td>
-                <td>0.4</td>
-                <td>1.3</td>
-              </tr>
-              <tr>
-                <td class="player-name">Johnathan Lawson</td>
-                <td>17</td>
-                <td>0</td>
-                <td>3.5</td>
-                <td>0.2</td>
-                <td>0.8</td>
-                <td>.286</td>
-                <td>0.2</td>
-                <td>0.3</td>
-                <td>.600</td>
-                <td>0.1</td>
-                <td>0.5</td>
-                <td>.111</td>
-                <td>0.1</td>
-                <td>0.2</td>
-                <td>.667</td>
-                <td>0.2</td>
-                <td>0.5</td>
-                <td>0.7</td>
-                <td>0.3</td>
-                <td>0.0</td>
-                <td>0.1</td>
-                <td>0.2</td>
-                <td>0.3</td>
-                <td>0.6</td>
-              </tr>
-            </tbody>
-          </table>
+        <h2>Season Player Stats</h2>
+        <div class="season-selector">
+          <select id="yearDropdown" onchange="fetchAllPlayerStats()">
+            <option value="">Select a Season</option>
+          </select>
         </div>
-      </section>
-      <section id="team-stats">
-        <h2>Team Stats</h2>
-      </section>
-      <section id="all-time-leaders">
-        <h2>All-Time Players</h2>
+        <div class="table-container">
+          <div id="playerStats">Select a Season to view player stats</div>
+        </div>
       </section>
     </main>
 
-    <footer></footer>
+    <script>
+      // Populate the year dropdown
+      const yearDropdown = document.getElementById("yearDropdown");
+      for (let year = 2020; year <= 2025; year++) {
+        const option = document.createElement("option");
+        option.value = year;
+        option.textContent = `${year}-${year + 1} Season`;
+        yearDropdown.appendChild(option);
+      }
+
+      // Fetch and display player stats
+      function fetchAllPlayerStats() {
+        const year = document.getElementById("yearDropdown").value;
+        const statsContainer = document.getElementById("playerStats");
+        statsContainer.innerHTML = ""; // Clear previous stats
+
+        if (year) {
+          fetch(
+            "https://api.sportsdata.io/v3/cbb/scores/json/PlayersBasic/CREIGH?key=d04b4b1d503341d89c892169f5e33efd"
+          )
+            .then((response) => response.json())
+            .then((players) => {
+              // Create table
+              const table = document.createElement("table");
+              table.className = "stats-table";
+              const headerRow = table.insertRow();
+
+              // Add headers
+              const headers = [
+                "Player",
+                "G",
+                "GS",
+                "MP",
+                "FG",
+                "FGA",
+                "FG%",
+                "3P",
+                "3PA",
+                "3P%",
+                "FT",
+                "FTA",
+                "FT%",
+                "ORB",
+                "DRB",
+                "TRB",
+                "AST",
+                "STL",
+                "BLK",
+                "TOV",
+                "PF",
+                "PTS",
+              ];
+              headers.forEach((headerText) => {
+                const th = document.createElement("th");
+                th.textContent = headerText;
+                headerRow.appendChild(th);
+              });
+
+              // Fetch and display stats for each player
+              players.forEach((player) => {
+                fetch(
+                  `https://api.sportsdata.io/v3/cbb/stats/json/PlayerSeasonStatsByPlayer/${year}/${player.PlayerID}?key=d04b4b1d503341d89c892169f5e33efd`
+                )
+                  .then((response) => response.json())
+                  .then((stats) => {
+                    if (stats) {
+                      const row = table.insertRow();
+
+                      // Add player name
+                      const nameCell = row.insertCell();
+                      nameCell.textContent = `${player.FirstName} ${player.LastName}`;
+                      nameCell.className = "player-name";
+
+                      // Add stats cells
+                      const statFields = [
+                        "Games",
+                        "Started",
+                        "Minutes",
+                        "FieldGoalsMade",
+                        "FieldGoalsAttempted",
+                        "FieldGoalsPercentage",
+                        "ThreePointersMade",
+                        "ThreePointersAttempted",
+                        "ThreePointersPercentage",
+                        "FreeThrowsMade",
+                        "FreeThrowsAttempted",
+                        "FreeThrowsPercentage",
+                        "OffensiveRebounds",
+                        "DefensiveRebounds",
+                        "Rebounds",
+                        "Assists",
+                        "Steals",
+                        "BlockedShots",
+                        "Turnovers",
+                        "PersonalFouls",
+                        "Points",
+                      ];
+
+                      statFields.forEach((field) => {
+                        const cell = row.insertCell();
+                        let value = stats[field];
+
+                        // Format percentages
+                        if (field.includes("Percentage")) {
+                          value = value ? (value / 100).toFixed(3) : "N/A";
+                        }
+                        // Format time
+                        else if (field === "Minutes") {
+                          value = value ? (value / 60).toFixed(1) : "N/A";
+                        }
+                        // Format other stats
+                        else {
+                          value = value || "N/A";
+                        }
+
+                        cell.textContent = value;
+                      });
+                    }
+                  })
+                  .catch((error) => {
+                    console.error("Error fetching player stats:", error);
+                  });
+              });
+
+              statsContainer.appendChild(table);
+            })
+            .catch((error) => {
+              console.error("Error fetching player list:", error);
+              statsContainer.textContent = "Error loading player stats.";
+            });
+        } else {
+          statsContainer.textContent = "Please select a season.";
+        }
+      }
+    </script>
   </body>
 </html>
