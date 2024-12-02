@@ -64,38 +64,22 @@
       </section>
 
       <section id="recent-season-player-stats">
-        <h2>Season Player Stats</h2>
-        <div class="season-selector">
-          <select id="yearDropdown" onchange="fetchAllPlayerStats()">
-            <option value="">Select a Season</option>
-          </select>
-        </div>
+        <h2>Season Player Stats: 2024-2025</h2>
         <div class="table-container">
-          <div id="playerStats">Select a Season to view player stats</div>
+          <div id="playerStats">Loading player stats...</div>
         </div>
       </section>
     </main>
 
     <script>
-      // Populate the year dropdown
-      const yearDropdown = document.getElementById("yearDropdown");
-      for (let year = 2020; year <= 2025; year++) {
-        const option = document.createElement("option");
-        option.value = year;
-        option.textContent = `${year}-${year + 1} Season`;
-        yearDropdown.appendChild(option);
-      }
-
-      // Fetch and display player stats
-      function fetchAllPlayerStats() {
-        const year = document.getElementById("yearDropdown").value;
+      // Fetch and display player stats for the 2024 season
+      function fetchPlayerStatsFor2024() {
         const statsContainer = document.getElementById("playerStats");
         statsContainer.innerHTML = ""; // Clear previous stats
 
-        if (year) {
-          fetch(
-            "https://api.sportsdata.io/v3/cbb/scores/json/PlayersBasic/CREIGH?key=d04b4b1d503341d89c892169f5e33efd"
-          )
+        fetch(
+          "https://api.sportsdata.io/v3/cbb/scores/json/PlayersBasic/CREIGH?key=d04b4b1d503341d89c892169f5e33efd"
+        )
             .then((response) => response.json())
             .then((players) => {
               // Create table
