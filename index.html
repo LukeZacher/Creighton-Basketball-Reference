@@ -74,6 +74,7 @@
     <script>
       // Fetch and display player stats for the 2024 season
       function fetchPlayerStatsFor2024() {
+        const year = 2024;
         const statsContainer = document.getElementById("playerStats");
         statsContainer.innerHTML = ""; // Clear previous stats
 
@@ -190,6 +191,7 @@
               console.error("Error fetching player list:", error);
               statsContainer.textContent = "Error loading player stats.";
             });
+        }  
       // Initialize on page load
       fetchPlayerStatsFor2024();
     </script>
