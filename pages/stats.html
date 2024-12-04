@@ -66,16 +66,16 @@
   <div>
     <label for="yearSelector"><strong>Select a Year:</strong></label>
     <select id="yearSelector">
-      <option value="json/stats2023.json">2023-2024</option>
-      <option value="json/stats2022.json">2022-2023</option>
-      <option value="json/stats2021.json">2021-2022</option>
-      <option value="json/stats2020.json">2020-2021</option>
-      <option value="json/stats2019.json">2019-2020</option>
-      <option value="json/stats2018.json">2018-2019</option>
-      <option value="json/stats2017.json">2017-2018</option>
-      <option value="json/stats2016.json">2016-2017</option>
-      <option value="json/stats2015.json">2015-2016</option>
-      <option value="json/stats2014.json">2014-2015</option>
+      <option value="stats2023.json">2023-2024</option>
+      <option value="stats2022.json">2022-2023</option>
+      <option value="stats2021.json">2021-2022</option>
+      <option value="stats2020.json">2020-2021</option>
+      <option value="stats2019.json">2019-2020</option>
+      <option value="stats2018.json">2018-2019</option>
+      <option value="stats2017.json">2017-2018</option>
+      <option value="stats2016.json">2016-2017</option>
+      <option value="stats2015.json">2015-2016</option>
+      <option value="stats2014.json">2014-2015</option>
     </select>
   </div>
 
@@ -101,14 +101,6 @@
     <tbody></tbody>
   </table>
 
-  <script src="js/main.js"></script>
-  <script>
-    const yearSelector = document.getElementById("yearSelector");
-    loadStats(yearSelector.value);
-
-    yearSelector.addEventListener("change", () => {
-      loadStats(yearSelector.value);
-    });
-  </script>
+  <script src="../js/main.js"></script>
 </body>
 </html>
