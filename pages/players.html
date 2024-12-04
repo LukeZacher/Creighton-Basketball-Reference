@@ -80,7 +80,7 @@
         const playerDropdown = document.getElementById("playerDropdown");
 
         fetch(
-          "https://api.sportsdata.io/v3/cbb/scores/json/PlayersBasic/CREIGH?key=d04b4b1d503341d89c892169f5e33efd"
+          "https://api.sportsdata.io/v3/cbb/scores/json/PlayersBasic/CREIGH?key=c6246deeb2ad485b89714cf8efdb9491"
         )
           .then((response) => response.json())
           .then((players) => {
@@ -103,7 +103,7 @@
 
         if (playerId) {
           fetch(
-            `https://api.sportsdata.io/v3/cbb/scores/json/Player/${playerId}?key=d04b4b1d503341d89c892169f5e33efd`
+            `https://api.sportsdata.io/v3/cbb/scores/json/Player/${playerId}?key=c6246deeb2ad485b89714cf8efdb9491`
           )
             .then((response) => response.json())
             .then((player) => {
