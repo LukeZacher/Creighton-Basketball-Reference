@@ -59,7 +59,7 @@
         statsContainer.innerHTML = ""; // Clear previous stats
 
         fetch(
-          "https://api.sportsdata.io/v3/cbb/scores/json/PlayersBasic/CREIGH?key=c6246deeb2ad485b89714cf8efdb9491"
+          "https://api.sportsdata.io/v3/cbb/scores/json/PlayersBasic/CREIGH?key=fea5a21b9ba14713b66ea6d03986e000"
         )
           .then((response) => response.json())
           .then((players) => {
@@ -102,7 +102,7 @@
             // Fetch and display stats for each player
             players.forEach((player) => {
               fetch(
-                `https://api.sportsdata.io/v3/cbb/stats/json/PlayerSeasonStatsByPlayer/${year}/${player.PlayerID}?key=c6246deeb2ad485b89714cf8efdb9491`
+                `https://api.sportsdata.io/v3/cbb/stats/json/PlayerSeasonStatsByPlayer/${year}/${player.PlayerID}?key=fea5a21b9ba14713b66ea6d03986e000`
               )
                 .then((response) => response.json())
                 .then((stats) => {
