@@ -1,114 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/styles.css" />
-  <style>
-    /* Shared styles with players.html */
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>Creighton Basketball Statistics</title>
+    <style>
+      label {
+        font-weight: bold;
+      }
+      /* Container for year selector */
+      div {
+        text-align: center;
+        margin: 20px 0;
+      }
 
-    h1 {
-      text-align: center;
-      color: #003366;
-      margin-top: 20px;
-    }
+      /* Statistics Table */
+      #statsTable {
+        margin: 0 auto;
+        width: 80%;
+        background-color: #d4e3f5;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
 
-    label {
-      font-weight: bold;
-    }
+      #statsTable th,
+      #statsTable td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ccc;
+      }
 
-    select {
-      padding: 8px 16px;
-      font-size: 16px;
-      border-radius: 4px;
-    }
+      #statsTable th {
+        background-color: #003366;
+        color: white;
+      }
 
-    /* Container for year selector */
-    div {
-      text-align: center;
-      margin: 20px 0;
-    }
+      #statsTable tbody tr:nth-child(even) {
+        background-color: #f4f9ff;
+      }
+    </style>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <h1>Creighton Basketball Statistics</h1>
 
-    /* Statistics Table */
-    #statsTable {
-      margin: 20px auto;
-      width: 90%;
-      border-collapse: collapse;
-      background-color: #d4e3f5;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+      <div>
+        <label for="yearSelector"><strong>Select a Year:</strong></label>
+        <select id="yearSelector">
+          <option value="stats2023.json">2023-2024</option>
+          <option value="stats2022.json">2022-2023</option>
+          <option value="stats2021.json">2021-2022</option>
+          <option value="stats2020.json">2020-2021</option>
+          <option value="stats2019.json">2019-2020</option>
+          <option value="stats2018.json">2018-2019</option>
+          <option value="stats2017.json">2017-2018</option>
+          <option value="stats2016.json">2016-2017</option>
+          <option value="stats2015.json">2015-2016</option>
+          <option value="stats2014.json">2014-2015</option>
+        </select>
+      </div>
 
-    #statsTable th, #statsTable td {
-      padding: 10px;
-      text-align: center;
-      border: 1px solid #ccc;
-    }
+      <table id="statsTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>PTS</th>
+            <th>PTS/G</th>
+            <th>FG-FGA</th>
+            <th>FG%</th>
+            <th>3FG-FGA</th>
+            <th>3PT%</th>
+            <th>FT-FTA</th>
+            <th>FT%</th>
+            <th>AST</th>
+            <th>STL</th>
+            <th>BLO</th>
+            <th>REB</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </main>
+    <footer></footer>
 
-    #statsTable th {
-      background-color: #003366;
-      color: white;
-    }
+    <script type="module">
+      import { loadComponents } from "../utils/loadComponents.js";
+      loadComponents();
+    </script>
 
-    #statsTable tbody tr:nth-child(even) {
-      background-color: #f4f9ff;
-    }
-  </style>
-  <title>Creighton Basketball Statistics</title>
-</head>
-<body>
-  <nav>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="players.html">Players</a></li>
-      <li><a href="seasons.html">Schedule</a></li>
-      <li><a href="stats.html">Past Stats</a></li>
-    </ul>
-  </nav>
-  <h1>Creighton Basketball Statistics</h1>
-
-  <div>
-    <label for="yearSelector"><strong>Select a Year:</strong></label>
-    <select id="yearSelector">
-      <option value="stats2023.json">2023-2024</option>
-      <option value="stats2022.json">2022-2023</option>
-      <option value="stats2021.json">2021-2022</option>
-      <option value="stats2020.json">2020-2021</option>
-      <option value="stats2019.json">2019-2020</option>
-      <option value="stats2018.json">2018-2019</option>
-      <option value="stats2017.json">2017-2018</option>
-      <option value="stats2016.json">2016-2017</option>
-      <option value="stats2015.json">2015-2016</option>
-      <option value="stats2014.json">2014-2015</option>
-    </select>
-  </div>
-
-  <table id="statsTable">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>PTS</th>
-        <th>PTS/G</th>
-        <th>FG-FGA</th>
-        <th>FG%</th>
-        <th>3FG-FGA</th>
-        <th>3PT%</th>
-        <th>FT-FTA</th>
-        <th>FT%</th>
-        <th>AST</th>
-        <th>STL</th>
-        <th>BLO</th>
-        <th>REB</th>
-        
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <script src="../js/main.js"></script>
-</body>
+    <script src="../js/main.js"></script>
+  </body>
 </html>

@@ -13,13 +13,7 @@
       /* Player Details Styles */
       .player-selector {
         text-align: center;
-        margin: 20px 0;
-      }
-
-      select {
-        padding: 8px 16px;
-        font-size: 16px;
-        border-radius: 4px;
+        margin: 0 auto;
       }
 
       .player-details-container {
@@ -50,19 +44,9 @@
     </style>
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="players.html">Players</a></li>
-          <li><a href="seasons.html">Schedule</a></li>
-          <li><a href="stats.html">Stats</a></li>
-        </ul>
-      </nav>
-    </header>
-
+    <header></header>
     <main>
-      <h2>Player Details</h2>
+      <h1>Player Details</h1>
       <div class="player-selector">
         <select id="playerDropdown" onchange="fetchPlayerDetails()">
           <option value="">Select a Player</option>
@@ -73,6 +57,12 @@
         <div id="playerDetails">Select a player to view their details</div>
       </div>
     </main>
+    <footer></footer>
+
+    <script type="module">
+      import { loadComponents } from "../utils/loadComponents.js";
+      loadComponents();
+    </script>
 
     <script>
       // Populate player dropdown on page load
@@ -126,7 +116,9 @@
                                 </div>
                                 <div class="detail-item">
                                     <strong>Height:</strong> ${
-                                      player.Height " in"|| "N/A"
+                                      player.Height
+                                        ? player.Height + " in"
+                                        : "N/A"
                                     }
                                 </div>
                                 <div class="detail-item">
